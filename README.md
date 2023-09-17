@@ -1,4 +1,4 @@
 # HackTheNorth2023
 
-## AlzheimEar
+## ActivEar
 
