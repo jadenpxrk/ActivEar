@@ -15,15 +15,15 @@ const Landing: React.FC = () => {
   const startRecording = () => {
     navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
       mediaRecorder = new MediaRecorder(stream);
-      console.log("MediaRecorder state:", mediaRecorder.state); // Debug 1: Check initial state
+      console.log("MediaRecorder state:", mediaRecorder.state); //  Check initial state
 
       mediaRecorder.ondataavailable = (event) => {
-        console.log("Received chunk of size:", event.data.size); // Debug 2: Chunk size
+        console.log("Received chunk of size:", event.data.size); // Chunk size
         audioChunks.push(event.data);
       };
 
       mediaRecorder.start();
-      console.log("MediaRecorder state after start:", mediaRecorder.state); // Debug 3: Check state after start
+      console.log("MediaRecorder state after start:", mediaRecorder.state); // Check state after start
     });
   };
 
@@ -82,10 +82,6 @@ const Landing: React.FC = () => {
     setIsRecordingQuestion(!isRecordingQuestion);
   };
 
-  const clearMemory = () => {
-    axios.get("http://localhost:8000/clear_memory");
-  };
-
   useEffect(() => {
     const playAudio = async () => {
       const audioResponse = await axios.get("http://localhost:8000/playback", {
@@ -96,12 +92,17 @@ const Landing: React.FC = () => {
       const audio = new Audio(audioUrl);
       audio.play();
     };
-    playAudio();
-  }, [aiResponse]);
+
+    if (aiResponse && !isRecordingQuestion) {
+      playAudio();
+    }
+  }, [aiResponse, isRecordingQuestion]);
 
   return (
     <section className="w-full h-full flex flex-col justify-center items-center">
-      <div className="w-full h-full flex flex-col justify-center items-center gap-4 mt-12">
+      <div className="mt-72 w-full h-full flex flex-col justify-center items-center gap-4">
+        <img src="ear.png" alt="logo" className="h-24" />
+        <h1 className="text-3xl font-bold mb-12">ActivEar</h1>
         <Button
           variant={isRecordingContinuously ? "destructive" : "outline"}
           onClick={toggleContinuousRecording}
@@ -121,14 +122,6 @@ const Landing: React.FC = () => {
           disabled={isRecordingContinuously} // Disable this button if isRecordingContinuously is true
         >
           {isRecordingQuestion ? "Stop Recording Question" : "Record Question"}
-        </Button>
-        <Button
-          variant={"destructive"}
-          onClick={clearMemory}
-          size={"lg"}
-          className="text-lg"
-        >
-          Clear Memory
         </Button>
       </div>
       {aiResponse && (
