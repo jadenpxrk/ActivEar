@@ -32,7 +32,6 @@ const Landing: React.FC = () => {
       mediaRecorder.onstop = () => {
         const sendSavedRecording = async () => {
           console.log("MediaRecorder MimeType:", mediaRecorder?.mimeType); // Add this debug log
-          const actualMimeType = mediaRecorder?.mimeType; // Capture the actual mime type
 
           const audioBlob = new Blob(audioChunks, { type: "audio/mp3" });
           console.log("Created Blob of size:", audioBlob.size); // Debug 5: Blob size
