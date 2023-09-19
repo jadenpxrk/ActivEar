@@ -1,5 +1,7 @@
 # HackTheNorth2023
 
+![activ](https://github.com/JaehyeongPark06/ActivEar/assets/78674944/0d4b7142-6b34-45eb-8591-3afb3818ab1c)
+
 ## Inspiration
 
 As a team, we collectively understand the struggles of being forgetful. With needing to remake an Apple ID password on every login, it gets frustrating, and that’s only a fraction of what patients with Alzheimer's experience. With this in mind, we built ActivEar.
@@ -23,3 +25,35 @@ As young students, it is common for us to be overlooked and underestimated. Buil
 ## Built with
 
 React.js, TypeScript, Python, FastAPI, ElevenLabs API, Pinecone, OpenAI API, and Tailwind CSS
+
+## Getting Started (Backend)
+
+Go to the root folder of /backend/, and run:
+
+`python -m venv ./env/`
+
+This will create a virtual python environment.
+
+Activate it with:
+
+`source env/bin/activate`
+
+Now install all pip requirements:
+`pip install -r "requirements.txt"`
+
+Now run the server with:
+`python main.py`
+
+Make sure to have a `.env` file with 
+- `OPENAI_API_KEY`
+- `XI_API_KEY`
+- `PINECONE_API_KEY`
+
+All initialized in the root backend folder
+
+## Getting Started Frontend
+
+Go to the root folder of /frontend/, and run 
+
+`npm install`
+`npm run dev`
