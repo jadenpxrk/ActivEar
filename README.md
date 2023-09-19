@@ -56,4 +56,5 @@ All initialized in the root backend folder
 Go to the root folder of /frontend/, and run 
 
 `npm install`
+
 `npm run dev`
