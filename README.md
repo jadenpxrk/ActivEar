@@ -2,6 +2,9 @@
 
 ![activ](https://github.com/JaehyeongPark06/ActivEar/assets/78674944/0d4b7142-6b34-45eb-8591-3afb3818ab1c)
 
+## Live Demo
+[Link](https://devpost.com/software/alzheimear)
+
 ## Inspiration
 
 As a team, we collectively understand the struggles of being forgetful. With needing to remake an Apple ID password on every login, it gets frustrating, and that’s only a fraction of what patients with Alzheimer's experience. With this in mind, we built ActivEar.
